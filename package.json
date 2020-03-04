@@ -1,0 +1,62 @@
+{
+  "name": "stencil-apollo-starter",
+  "version": "0.0.1",
+  "description": "Stencil Apollo Starter",
+  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
+  "types": "dist/types/components.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "format": "prettier --write src/**/*.ts src/**/*.tsx",
+    "graphql": "npm run generate && npm run format",
+    "generate": "gql-gen",
+    "build": "stencil build",
+    "start": "stencil build --dev --watch --serve",
+    "test": "jest",
+    "test.watch": "jest --watch"
+  },
+  "dependencies": {
+    "apollo-boost": "0.4.7",
+    "fp-ts": "^2.5.3",
+    "graphql": "14.6.0",
+    "graphql-tag": "2.10.2",
+    "stencil-apollo": "0.1.5"
+  },
+  "devDependencies": {
+    "@graphql-codegen/add": "1.12.1",
+    "@graphql-codegen/cli": "1.12.1",
+    "@graphql-codegen/near-operation-file-preset": "1.12.1",
+    "@graphql-codegen/typescript": "^1.12.1",
+    "@graphql-codegen/typescript-operations": "1.12.1",
+    "@graphql-codegen/typescript-stencil-apollo": "1.12.1",
+    "@stencil/core": "1.8.6",
+    "@types/graphql": "14.2.3",
+    "prettier": "^1.19.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ionic-team/stencil-component-starter.git"
+  },
+  "author": "Ionic Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ionic-team/stencil"
+  },
+  "homepage": "https://github.com/ionic-team/stencil",
+  "jest": {
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json",
+      "jsx"
+    ]
+  }
+}
