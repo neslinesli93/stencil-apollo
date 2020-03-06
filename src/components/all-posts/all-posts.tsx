@@ -1,24 +1,19 @@
-import * as Types from "../../types";
-import gql from "graphql-tag";
-import "stencil-apollo";
-import { Component, Prop, h } from "@stencil/core";
+// @ts-nocheck
+import * as Types from '@/types';
+import gql from 'graphql-tag';
+import 'stencil-apollo';
+import { Component, Prop, h } from '@stencil/core';
 
 declare global {
   export type AllPostsQueryVariables = {};
 
-  export type AllPostsQuery = { __typename?: "Query" } & {
+  export type AllPostsQuery = { __typename?: 'Query' } & {
     posts: Types.Maybe<
       Array<
         Types.Maybe<
-          { __typename?: "Post" } & Pick<
-            Types.Post,
-            "id" | "title" | "votes"
-          > & {
+          { __typename?: 'Post' } & Pick<Types.Post, 'id' | 'title' | 'votes'> & {
               author: Types.Maybe<
-                { __typename?: "Author" } & Pick<
-                  Types.Author,
-                  "id" | "firstName" | "lastName"
-                >
+                { __typename?: 'Author' } & Pick<Types.Author, 'id' | 'firstName' | 'lastName'>
               >;
             }
         >
@@ -43,21 +38,14 @@ const AllPostsDocument = gql`
 `;
 
 @Component({
-  tag: "apollo-all-posts"
+  tag: 'apollo-all-posts',
 })
 export class AllPostsComponent {
-  @Prop() renderer: import("stencil-apollo").QueryRenderer<
-    AllPostsQuery,
-    AllPostsQueryVariables
-  >;
+  @Prop() renderer: import('stencil-apollo').QueryRenderer<AllPostsQuery, AllPostsQueryVariables>;
   @Prop() variables: AllPostsQueryVariables;
   render() {
     return (
-      <apollo-query
-        query={AllPostsDocument}
-        variables={this.variables}
-        renderer={this.renderer}
-      />
+      <apollo-query query={AllPostsDocument} variables={this.variables} renderer={this.renderer} />
     );
   }
 }

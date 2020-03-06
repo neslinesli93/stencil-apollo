@@ -1,1 +1,1 @@
-import "stencil-apollo";
+import 'stencil-apollo';

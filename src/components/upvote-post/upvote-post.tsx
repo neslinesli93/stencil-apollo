@@ -1,17 +1,16 @@
-import * as Types from "../../types";
-import gql from "graphql-tag";
-import "stencil-apollo";
-import { Component, Prop, h } from "@stencil/core";
+// @ts-nocheck
+import * as Types from '@/types';
+import gql from 'graphql-tag';
+import 'stencil-apollo';
+import { Component, Prop, h } from '@stencil/core';
 
 declare global {
   export type UpvotePostMutationVariables = {
-    postId: Types.Scalars["Int"];
+    postId: Types.Scalars['Int'];
   };
 
-  export type UpvotePostMutation = { __typename?: "Mutation" } & {
-    upvotePost: Types.Maybe<
-      { __typename?: "Post" } & Pick<Types.Post, "id" | "votes">
-    >;
+  export type UpvotePostMutation = { __typename?: 'Mutation' } & {
+    upvotePost: Types.Maybe<{ __typename?: 'Post' } & Pick<Types.Post, 'id' | 'votes'>>;
   };
 }
 
@@ -25,10 +24,10 @@ const UpvotePostDocument = gql`
 `;
 
 @Component({
-  tag: "apollo-upvote-post"
+  tag: 'apollo-upvote-post',
 })
 export class UpvotePostComponent {
-  @Prop() renderer: import("stencil-apollo").MutationRenderer<
+  @Prop() renderer: import('stencil-apollo').MutationRenderer<
     UpvotePostMutation,
     UpvotePostMutationVariables
   >;

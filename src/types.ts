@@ -1,7 +1,5 @@
 /* tslint:disable */
-import { Option } from 'fp-ts/lib/Option';
-export type Maybe<T> = Option<T>;
-
+export type Maybe<T> = T | null;
 
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -16,9 +14,9 @@ export type Scalars = {
 export type Author = {
    __typename?: 'Author',
   id: Scalars['Int'],
-  firstName: Maybe<Scalars['String']>,
-  lastName: Maybe<Scalars['String']>,
-  posts: Maybe<Array<Maybe<Post>>>,
+  firstName?: Maybe<Scalars['String']>,
+  lastName?: Maybe<Scalars['String']>,
+  posts?: Maybe<Array<Maybe<Post>>>,
 };
 
 export enum CacheControlScope {
@@ -28,7 +26,7 @@ export enum CacheControlScope {
 
 export type Mutation = {
    __typename?: 'Mutation',
-  upvotePost: Maybe<Post>,
+  upvotePost?: Maybe<Post>,
 };
 
 
@@ -39,20 +37,20 @@ export type MutationUpvotePostArgs = {
 export type Post = {
    __typename?: 'Post',
   id: Scalars['Int'],
-  title: Maybe<Scalars['String']>,
-  author: Maybe<Author>,
-  votes: Maybe<Scalars['Int']>,
+  title?: Maybe<Scalars['String']>,
+  author?: Maybe<Author>,
+  votes?: Maybe<Scalars['Int']>,
 };
 
 export type Query = {
    __typename?: 'Query',
-  posts: Maybe<Array<Maybe<Post>>>,
-  postsOf: Maybe<Array<Maybe<Post>>>,
-  authors: Maybe<Array<Maybe<Author>>>,
+  posts?: Maybe<Array<Maybe<Post>>>,
+  postsOf?: Maybe<Array<Maybe<Post>>>,
+  authors?: Maybe<Array<Maybe<Author>>>,
 };
 
 
 export type QueryPostsOfArgs = {
-  authorId: Maybe<Scalars['Int']>
+  authorId?: Maybe<Scalars['Int']>
 };
 

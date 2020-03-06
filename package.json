@@ -11,8 +11,7 @@
   ],
   "scripts": {
     "format": "prettier --write src/**/*.ts src/**/*.tsx",
-    "graphql": "npm run generate && npm run format",
-    "generate": "gql-gen",
+    "graphql": "gql-gen && npm run format",
     "build": "stencil build",
     "start": "stencil build --dev --watch --serve",
     "test": "jest",
@@ -32,7 +31,9 @@
     "@graphql-codegen/typescript": "^1.12.1",
     "@graphql-codegen/typescript-operations": "1.12.1",
     "@graphql-codegen/typescript-stencil-apollo": "1.12.1",
+    "@rollup/plugin-alias": "^3.0.1",
     "@stencil/core": "1.8.6",
+    "@stencil/sass": "^1.1.1",
     "@types/graphql": "14.2.3",
     "prettier": "^1.19.1"
   },

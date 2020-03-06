@@ -4,18 +4,19 @@ generates:
   src/types.ts:
     plugins:
       - add: /* tslint:disable */
-      - add: import { Option } from 'fp-ts/lib/Option';
+      # - add: import { Option } from 'fp-ts/lib/Option';
       - typescript
     config:
-      maybeValue: Option<T>
+      # maybeValue: Option<T>
   src/components/:
     documents: src/**/*.graphql
     preset: near-operation-file
     presetConfig:
-      baseTypesPath: "../types"
-      extension: ".tsx"
+      baseTypesPath: '../types'
+      extension: '.tsx'
     plugins:
-      - add: import * as Types from '../../types';
+      - add: // @ts-nocheck
+      - add: import * as Types from '@/types';
       - typescript-operations
       - typescript-stencil-apollo
     config:
